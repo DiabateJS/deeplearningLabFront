@@ -1,2 +1,2 @@
-# DeeplearningLabFront
+# DeeplearningLab
 Front DeeplearningLab
