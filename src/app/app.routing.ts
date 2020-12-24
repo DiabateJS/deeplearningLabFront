@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {BlankTemplateComponent} from './template/blank-template.component';
 import {LeftNavTemplateComponent} from './template/left-nav-template.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
@@ -20,6 +19,34 @@ export const routes: Routes = [{
       loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
       data: {
         title: 'Dashboard Page'
+      },
+    },
+    {
+      path: 'network',
+      loadChildren: () => import('./network/network.module').then(m => m.NetworkModule),
+      data: {
+        title: 'Networks'
+      },
+    },
+    {
+      path: 'learningbase',
+      loadChildren: () => import('./learning-base/learning-base.module').then(m => m.LearningBaseModule),
+      data: {
+        title: 'Learning Base'
+      },
+    },
+    {
+      path: 'train',
+      loadChildren: () => import('./train-network/train-network.module').then(m => m.TrainNetworkModule),
+      data: {
+        title: 'Train Network'
+      },
+    },
+    {
+      path: 'config',
+      loadChildren: () => import('./config/config.module').then(m => m.ConfigModule),
+      data: {
+        title: 'Config'
       },
     },
     {

@@ -13,8 +13,8 @@
                 <div class="profile-img">
                     <img src="assets/images/profile.jpg"/>
                 </div>
-                <span>Steve Gection</span>
-                <small class="text-center">Senior Developer</small>
+                <span>Deeplearning Lab</span>
+                <small class="text-center">Software factory</small>
             </a>
         </li>
         <li><a [routerLink]="['/dashboard']" [routerLinkActive]="['active']" class="waves-effect"><i class="fa fa-home"></i> <span
@@ -23,6 +23,30 @@
                 class="hide-menu"> Mailbox <span class="fa arrow"></span><span
                 class="label label-rouded label-danger pull-right">6</span></span></a>
         </li> -->
+      <li>
+        <a [routerLink]="['/network']" [routerLinkActive]="['active']">
+          <i class="fa fa-th"></i>
+          <span class="hide-menu">Network</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/learningbase']" [routerLinkActive]="['active']">
+          <i class="fa fa-table"></i>
+          <span class="hide-menu">Learning Base</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/train']" [routerLinkActive]="['active']">
+          <i class="fa fa-cogs"></i>
+          <span class="hide-menu">Training</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/config']" [routerLinkActive]="['active']">
+          <i class="fa fa-wrench"></i>
+          <span class="hide-menu">Config</span>
+        </a>
+      </li>
         <li>
             <a [routerLink]="['/ui-elements']" [routerLinkActive]="['active']">
                 <i class="fa fa-edit"></i>
