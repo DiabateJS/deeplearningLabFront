@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlBase: 'http://djstechnologies.fr/deeplearninglab_api/index.php?'
 };
