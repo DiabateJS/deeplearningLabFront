@@ -4,12 +4,10 @@ import { DashboardRoutingModule } from './dashboard-routing/dashboard-routing.mo
 import { BarChartComponent } from '../shared/bar-chart/bar-chart.component';
 import { LineChartComponent } from '../shared/line-chart/line-chart.component';
 import {ChartsModule} from 'ng2-charts';
-import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
   imports: [
-    HttpClientModule,
     DashboardRoutingModule, ChartsModule
   ],
   declarations: [ DashboardComponent, BarChartComponent, LineChartComponent  ],

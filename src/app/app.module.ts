@@ -8,6 +8,7 @@ import { AppRoutingModule, routes } from "./app.routing";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { NavigationComponent } from "./shared/navigation/navigation.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NavigationComponent } from "./shared/navigation/navigation.component";
     NavigationComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes, { useHash: true })

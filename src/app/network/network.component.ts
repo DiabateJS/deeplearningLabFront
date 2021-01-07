@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../environments/environment";
+import {NetworkService} from "../network.service";
 
 @Component({
   selector: 'app-network',
@@ -10,14 +9,13 @@ import {environment} from "../environments/environment";
 export class NetworkComponent implements OnInit {
   networks;
   network;
-  constructor(private httpClient: HttpClient) {
+  constructor(private networkService: NetworkService) {
     this.networks = [];
     this.network = {};
   }
 
   private loadNetworks(): void {
-    let url = `${environment.urlBase}operation=enum&type=networks`;
-    this.httpClient.get<any>(url).subscribe((data: any) => {
+    this.networkService.getNetworks().subscribe((data: any) => {
       this.networks = data;
     });
   }
@@ -27,15 +25,13 @@ export class NetworkComponent implements OnInit {
   }
 
   showNetwork(id): void {
-    let url = `${environment.urlBase}operation=enum&type=network&idNetwork=${id}`;
-    this.httpClient.get<any>(url).subscribe((data: any) => {
+    this.networkService.getNetwork(id).subscribe((data: any) => {
       this.network = data;
     });
   }
 
   deleteNetwork(id): void {
-    let url = `${environment.urlBase}operation=delete&type=network&id=${id}`;
-    this.httpClient.get<any>(url).subscribe((data: any) => {
+    this.networkService.deleteNetwork(id).subscribe((data: any) => {
       console.log(data);
       this.clearNetworkForm();
       this.loadNetworks();
@@ -54,29 +50,16 @@ export class NetworkComponent implements OnInit {
   }
 
   saveNetwork(): void {
-    let url = '';
     let request = this.createNetworkRequest();
-    console.log(request);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
     if (!this.network.id){
       //Creation d'un nouveau reseau
-      url = `${environment.urlBase}operation=create&type=network`;
-      console.log(url);
-      this.httpClient.post<any>(url,request,httpOptions).subscribe((data: any) => {
+      this.networkService.createNetwork(request).subscribe((data: any) => {
         console.log(data);
         this.loadNetworks();
       });
     }else{
-      console.log("Mise a jour reseau existant");
-      console.log(request);
       //Mise à jour d'un reseau existant
-      url = `${environment.urlBase}operation=update&type=network`;
-      console.log(url);
-      this.httpClient.post(url,request,httpOptions).subscribe((data: any) => {
+      this.networkService.updateNetwork(request).subscribe((data: any) => {
         this.loadNetworks();
       });
     }

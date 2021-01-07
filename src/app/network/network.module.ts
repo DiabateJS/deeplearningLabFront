@@ -8,7 +8,6 @@ import {FormsModule} from "@angular/forms";
   imports: [
     FormsModule,
     CommonModule,
-    HttpClientModule,
     NetworkRoutingModule
   ],
   declarations: [ NetworkComponent  ],

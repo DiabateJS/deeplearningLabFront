@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
+import {LearningConfigService} from "../learning-config.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +9,14 @@ import {environment} from "../environments/environment";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private learningConfigService: LearningConfigService) { }
   baseItem;
   learningRate;
   ecartMoy;
 
   ngOnInit() {
     let url = `${environment.urlBase}operation=enum&type=learning_config`;
-    this.httpClient.get<any>(url).subscribe((data:any) => {
+    this.learningConfigService.getLearningConfig().subscribe((data:any) => {
       this.baseItem = data.baseItem;
       this.learningRate = data.learningRate;
       this.ecartMoy = data.ecartMoy;
